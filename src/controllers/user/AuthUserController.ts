@@ -11,8 +11,9 @@ async handle(req: Request, res: Response){
   const authUserService = new AuthUserService()
 
   const auth = await authUserService.execute({email, password})
-
-    return res.json(auth)
+  res.json(auth)
+  
+    return 
 }
 }
 

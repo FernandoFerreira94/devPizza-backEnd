@@ -9,7 +9,7 @@ interface PayLoad {
 
 
 // middleware verificação de token para privar rotas
-export function isAuthenticated(req:Request, res:Response, next:NextFunction){
+export function isAuthenticated(req:Request, res:Response, next:NextFunction): void{
     
     // Recuperar o token pelo cabecalho
     const authToken = req.headers.authorization
@@ -17,7 +17,8 @@ export function isAuthenticated(req:Request, res:Response, next:NextFunction){
     if (!authToken) {
         // 401 - nao autorizado 
         // .end() - finaliza a requisicao
-        return res.status(401).end()
+        res.status(401).end()
+        return;
         
         // abrir insonmia veriricar o token vai no Auth/ Bearer Token, token: codigo do token, Prefix: Bearer
     }
@@ -37,7 +38,8 @@ export function isAuthenticated(req:Request, res:Response, next:NextFunction){
     }catch(err){ 
         // 401 - nao autorizado 
         // .end() - finaliza a requisicao
-        return res.status(401).end()
+        res.status(401).end()
+        return 
     }
 
   

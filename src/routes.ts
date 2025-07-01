@@ -18,6 +18,14 @@ import { ListByProductController } from "./controllers/product/ListByProductCont
 //Order
 import { CreateOrderController } from "./controllers/order/CreateOrdercontroller";
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
+import { ListOrderController } from "./controllers/order/listOrderController";
+import DetailOrderController from "./controllers/order/DetailOrderController";
+import FinishOrderController from "./controllers/order/FinishOrderController";
+
+// Item
+import { AddItemController } from "./controllers/order/AddItemController";
+import RemoveItemController from "./controllers/order/RemoveItemController";
+import SendOrderController from "./controllers/order/SendOrderController";
 
 // MIDDLEWARE
 import { isAuthenticated } from "./middlewares/isAuthenticated";
@@ -59,7 +67,15 @@ router.get(
 );
 
 //-- Rotas Order
+router.get("/orders", isAuthenticated, new ListOrderController().handle);
 router.post("/order", isAuthenticated, new CreateOrderController().handle);
 router.delete("/order", isAuthenticated, new RemoveOrderController().handle);
+router.get("/order/detail", isAuthenticated, DetailOrderController);
+
+//-- Rotas Item
+router.post("/order/add", isAuthenticated, new AddItemController().handle);
+router.delete("/order/remove", isAuthenticated, RemoveItemController);
+router.put("/order/send", isAuthenticated, SendOrderController);
+router.put("/order/finish", isAuthenticated, FinishOrderController);
 
 export { router };

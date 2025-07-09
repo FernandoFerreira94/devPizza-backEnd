@@ -1,6 +1,6 @@
 import app from "../src/server";
-import { Request, Response } from "express";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
-export default function handler(req: Request, res: Response) {
-  return app(req, res);
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  return app(req, res); // Agora os tipos batem
 }

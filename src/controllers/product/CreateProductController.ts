@@ -5,7 +5,7 @@ import { CreateProductService } from "../../services/product/CreateProductServic
 class CreateProductController {
   async handle(req: Request, res: Response) {
     // descontruindo valores enviado do body
-    const { name, price, description, category_id } = req.body;
+    const { name, price, description, category_id, banner } = req.body;
 
     const createProductService = new CreateProductService();
 
@@ -13,7 +13,7 @@ class CreateProductController {
       name,
       price,
       description,
-      banner: "",
+      banner,
       category_id,
     });
 

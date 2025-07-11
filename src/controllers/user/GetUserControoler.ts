@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetUserService from "../../services/user/getUserService";
+import GetUserService from "../../services/user/GetUserService";
 
 export default async function GetUserController(req: Request, res: Response) {
   const result = await GetUserService();

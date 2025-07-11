@@ -1,3 +1,4 @@
+import e from "express";
 import prismaClient from "../../prisma";
 
 interface ItemRequest {
@@ -14,8 +15,6 @@ export default async function RemoveItemService({ item_id }: ItemRequest) {
 
     return remoteItem;
   } catch (error) {
-    if (error.code === "P2025") {
-      throw new Error("Item não encontrado");
-    }
+    console.log(error);
   }
 }

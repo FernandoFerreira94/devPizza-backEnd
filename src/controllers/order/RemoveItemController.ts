@@ -2,8 +2,6 @@ import { Response, Request } from "express";
 
 import RemoveItemService from "../../services/order/RemoveItemService";
 
-
-
 export default async function RemoveItemController(
   req: Request,
   res: Response
@@ -18,7 +16,7 @@ export default async function RemoveItemController(
     });
     return;
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: "error" });
     return;
   }
 }

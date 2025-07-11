@@ -1,8 +1,6 @@
 import { Response, Request } from "express";
 
 import { CreateProductService } from "../../services/product/CreateProductService";
-import { UploadedFile } from "express-fileupload";
-import { v2 as cloudinary, UploadApiResponse } from "cloudinary";
 
 class CreateProductController {
   async handle(req: Request, res: Response) {

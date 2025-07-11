@@ -1,6 +1,4 @@
 import { Router } from "express";
-// multer hook para salvar as imagens
-import multer from "multer";
 
 // USERS
 import { CreateUserController } from "./controllers/user/CreateUserCrontroller";

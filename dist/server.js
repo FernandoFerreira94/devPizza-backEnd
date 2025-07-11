@@ -12,6 +12,7 @@ const cors_1 = __importDefault(require("cors"));
 // path pega o caminho
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
+const port = process.env.PORT || 3333;
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use((0, express_fileupload_1.default)({
@@ -31,4 +32,4 @@ app.use((err, req, res, next) => {
     });
     return;
 });
-exports.default = app;
+app.listen(port, () => console.log(`Server is running on port ${port}`));

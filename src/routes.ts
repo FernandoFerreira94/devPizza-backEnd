@@ -7,7 +7,7 @@ import { CreateUserController } from "./controllers/user/CreateUserCrontroller";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
 import CheckEmailController from "./controllers/user/CheckEmailController";
-import  GetUserControoler  from "./controllers/user/GetUserControoler";
+import GetUserControoler from "./controllers/user/GetUserControoler";
 
 // CATEGORY
 import { CreaterCategoryController } from "./controllers/category/CreateCategoryController";
@@ -33,20 +33,16 @@ import SendOrderController from "./controllers/order/SendOrderController";
 // MIDDLEWARE
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
-//MULTER
-import uploadConfing from "./config/multer";
-
 const router = Router();
 
 // funcao para salvar as imagens
-const upload = multer(uploadConfing.upload("./tmp"));
 
 // -- ROTAS USER --
 router.post("/users", new CreateUserController().handle);
 router.post("/session", new AuthUserController().handle);
 router.get("/me", isAuthenticated, new DetailUserController().handle);
 router.post("/users/check-email", CheckEmailController);
-router.get("/users/get", GetUserControoler)
+router.get("/users/get", GetUserControoler);
 
 // -- ROTAS CATEGORY --
 router.post(
@@ -57,15 +53,7 @@ router.post(
 
 router.get("/category", isAuthenticated, new ListCategoryController().handle);
 
-// -- ROTAS PRODUCTS
-/*
-router.post(
-  "/product",
-  isAuthenticated,
-  upload.single("file"),
-  new CreateProductController().handle
-);
-*/
+// -- ROTAS PRODUCT --
 
 router.post("/product", isAuthenticated, new CreateProductController().handle);
 

@@ -39,8 +39,6 @@ class CreateProductController {
         }
       );
 
-      console.log(resultFile);
-
       const menu = await createProductService.execute({
         name,
         price,

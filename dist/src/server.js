@@ -35,4 +35,4 @@ app.use((err, req, res, next) => {
 app.get("/", (req, res) => {
     res.json({ status: "online", message: "API DevPizza está funcionando 🍕" });
 });
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+exports.default = app;

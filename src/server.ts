@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import { router } from "./routes";
 // permite enviar arquivos
-import fileUpload from "express-fileupload";
+
 // cors hook para permitir requisicoes
 import cors from "cors";
 // path pega o caminho
@@ -12,11 +12,6 @@ const port = process.env.PORT || 3333;
 
 app.use(express.json());
 app.use(cors());
-app.use(
-  fileUpload({
-    limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
-  })
-);
 
 app.use(router);
 

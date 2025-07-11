@@ -31,6 +31,4 @@ app.use((err, req, res, next) => {
     });
     return;
 });
-app.listen(process.env.PORT, () => {
-    console.log("SERVER ONLINE!!!");
-});
+exports.default = app;

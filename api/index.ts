@@ -1,6 +1,12 @@
 import app from "../src/server";
-import { VercelRequest, VercelResponse } from "@vercel/node";
+import { createServer } from "http";
+import { parse } from "url";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  return app(req, res); // Agora os tipos batem
+  const server = createServer((req2, res2) => {
+    app(req2, res2);
+  });
+
+  server.emit("request", req, res);
 }

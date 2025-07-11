@@ -1,6 +1,6 @@
-import { Request, Response } from "express-serve-static-core";
 import app from "../src/server";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-export default function handler(req: Request, res: Response) {
-  return app(req, res);
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  return app(req as any, res as any);
 }

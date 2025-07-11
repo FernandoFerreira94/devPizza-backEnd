@@ -36,4 +36,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   return;
 });
 
+app.get("/", (req, res) => {
+  res.send("Serve Online");
+});
+
 app.listen(port, () => console.log(`Server is running on port ${port}`));
